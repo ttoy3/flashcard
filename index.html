@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .flexbox {
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            background-color: pink;
+            color: white;
+            font-size: xxx-large;
+        }
+    </style>
+</head>
+<body onresize="resolution()">
+    <div class="flexbox">
+        <!-- <div class="screen">Screen: <span class="sx"></span> x <span class="sy"></span> </div> -->
+        <div class="client">Client: <span class="cx"></span> x <span class="cy"></span> </div>
+    </div>
+</body>
+<script>
+
+function resolution() {
+    sx=window.screen.width
+    sy=window.screen.height
+    cx=document.documentElement.clientWidth
+    cy=document.documentElement.clientHeight
+    // console.log(wx,wy,sx,sy)
+    if (document.querySelector('.screen')) {
+        document.querySelector('.sx').innerText=sx;
+        document.querySelector('.sy').innerText=sy;
+    }
+    document.querySelector('.cx').innerText=cx;
+    document.querySelector('.cy').innerText=cy;
+    document.querySelector('.flexbox').style.minHeight=cy+'px';
+}
+resolution()
+</script>
+</html>
